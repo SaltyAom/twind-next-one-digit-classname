@@ -6,19 +6,28 @@ const sheet = virtualSheet()
 const styleMap: Record<string, string> = {}
 let counter = 0
 
+// 0-51 = a-z & A-Z
+// 52-2755 = aa - az && Aa - ZZ
 const generateStyleHash = (value: string) => {
     if (styleMap[value]) return styleMap[value]
 
-    let localCounter = counter
     let hash = ''
+    let localCounter = counter
+
+    let genDivisor = () => 52 ** hash.length
+    let genDecrement = () => 52 ** (hash.length + 1)
 
     while (localCounter >= 0) {
-        let charCode = localCounter % 26
+        let charCode = Math.floor(localCounter / genDivisor()) % 52
 
-        hash += String.fromCharCode(97 + charCode)
+        localCounter = localCounter - genDecrement()
 
-        localCounter -= 26
+        // a-z and A-Z otherwise start new className
+        if (charCode < 26) hash += String.fromCharCode(97 + charCode)
+        else hash += String.fromCharCode(65 + charCode - 26)
     }
+
+    hash = hash.split('').reverse().join('')
 
     styleMap[value] = hash
     counter++
@@ -36,6 +45,4 @@ setup({
 
 sheet.reset()
 
-export {
-    sheet
-}
+export { sheet }
