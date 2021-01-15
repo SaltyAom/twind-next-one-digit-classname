@@ -13,6 +13,7 @@
 		"lint": "eslint 'src/**/*.{ts,tsx}'"
 	},
 	"dependencies": {
+		"1-classname": "^1.0.0",
 		"next": "10.0.4",
 		"next-ga": "^2.3.4",
 		"preact": "^10.5.9",

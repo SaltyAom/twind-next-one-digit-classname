@@ -32,6 +32,3 @@ jobs:
     - name: "Test: Run test suite"
       run: |
         yarn test
-    - name: "Test: Code linting"
-      run: |
-        yarn test:lint
