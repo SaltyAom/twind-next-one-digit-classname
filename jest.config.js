@@ -10,5 +10,6 @@ module.exports = {
         '^@styles(.*)$': '<rootDir>/src/styles$1',
         '^@services(.*)$': '<rootDir>/src/services$1',
         '^@models(.*)$': '<rootDir>/src/models$1',
+        '^~(.*)$': '<rootDir>'
     }
 }

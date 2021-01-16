@@ -71,7 +71,8 @@ module.exports = withPlugins(
                 '@components': join(__dirname, 'src/components'),
                 '@styles': join(__dirname, 'src/styles'),
                 '@services': join(__dirname, 'src/services'),
-                '@models': join(__dirname, 'src/models')
+                '@models': join(__dirname, 'src/models'),
+                '~': join(__dirname)
             }
 
             if (!options.dev)

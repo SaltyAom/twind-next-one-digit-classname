@@ -14,5 +14,8 @@ Since next.js has ssr, generating between server and client has different cache,
 
 For example, feels free to look inside `src/pages/_app.tsx`.
 
+## Gotcha
+- Reduced className (1 digit) is not available in dev enviroment for fast refresh and preventing Next from re-building whole web.
+
 ## Note
 this is Proof of Concept that `twind` can be hashed in to one-alphabet className, I have no responsibility for your action for using this concept on production.

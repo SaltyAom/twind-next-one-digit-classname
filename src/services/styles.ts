@@ -5,18 +5,32 @@ import oneClassName from '1-classname'
 
 import { isProduction } from './runtime'
 
+const tailwindConfig = require('~/tailwind.config.js')
+
 const sheet = virtualSheet()
+
+const { purge, ...config } = tailwindConfig
+
+const twindConfig = {
+    preflight: false,
+    mode: 'strict'
+}
 
 if (isProduction) {
     setup({
-        preflight: false,
-        mode: 'strict',
         hash: (string) => oneClassName(string),
-        darkMode: 'class',
-        sheet
+        sheet,
+        ...twindConfig,
+        ...config
     })
 
     sheet.reset()
+} else {
+    setup({
+        hash: (string) => oneClassName(string),
+        ...twindConfig,
+        ...config
+    })
 }
 
 export { sheet }
