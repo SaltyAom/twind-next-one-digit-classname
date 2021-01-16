@@ -27,7 +27,6 @@ if (isProduction) {
     sheet.reset()
 } else {
     setup({
-        hash: (string) => oneClassName(string),
         ...twindConfig,
         ...config
     })

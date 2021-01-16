@@ -22,7 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     }, [])
 
     useEffect(() => {
-        if (process.env.NODE_ENV === 'production') {
+        if (isProduction) {
             updateStyleTag(
                 getStyleTag(sheet)
                     .replace(`<style id="__twind">`, '')
