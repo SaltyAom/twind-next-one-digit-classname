@@ -14,7 +14,7 @@ const Footer = () => (
             {link.map(({ title, link }) => (
                 <li key={link}>
                     <Link href={link}>
-                        <a className={tw`no-underline text(blue-400)`}>{title}</a>
+                        <a className={tw`no-underline text(red-400)`}>{title}</a>
                     </Link>
                 </li>
             ))}
