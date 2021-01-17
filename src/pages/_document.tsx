@@ -10,6 +10,7 @@ class MyDocument extends Document {
                 <Head />
                 {isProduction ? (
                     <head
+                        // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={{
                             __html: getStyleTag(sheet).replace(
                                 '__twind',
