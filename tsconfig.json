@@ -54,7 +54,7 @@
             "@styles/*": ["src/styles/*"],
             "@services": ["src/services/index.ts"],
             "@services/*": ["src/services/*"],
-            "@models": ["src/models/*"],
+            "@models": ["src/models/index.ts"],
             "@models/*": ["src/models/*"],
             "~/*": ["./"]
         } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
