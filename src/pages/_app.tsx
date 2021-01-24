@@ -19,20 +19,24 @@ const App = ({ Component, pageProps }: AppProps) => {
         document.addEventListener('touchstart', () => null, {
             passive: true
         })
-    }, [])
 
-    useEffect(() => {
-        if (isProduction) {
-            updateStyleTag(
-                getStyleTag(sheet)
-                    .replace(`<style id="__twind">`, '')
-                    .replace('</style>', '')
-            )
+        let clearInitialCSS = () => {
+            if (isProduction) {
+                updateStyleTag(
+                    getStyleTag(sheet)
+                        .replace(`<style id="__twind">`, '')
+                        .replace('</style>', '')
+                )
 
-            let twindInit = document.getElementById('__twind_init')
-            twindInit?.parentElement?.removeChild(twindInit)
+                let twindInit = document.getElementById('__twind_init')
+                twindInit?.parentElement?.removeChild(twindInit)
+            }
+
+            router.events.off('routeChangeComplete', clearInitialCSS)
         }
-    }, [router.pathname])
+
+        router.events.on('routeChangeComplete', clearInitialCSS)
+    }, [])
 
     return (
         <>
